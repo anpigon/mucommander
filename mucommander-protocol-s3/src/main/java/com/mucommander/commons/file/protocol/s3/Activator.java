@@ -72,7 +72,7 @@ public class Activator implements BundleActivator {
 
 		    @Override
 		    public int priority() {
-		        return 3000;
+		        return 1000;
 		    }
 		};
 		serviceRegistration = context.registerService(FileProtocolService.class, service, null);

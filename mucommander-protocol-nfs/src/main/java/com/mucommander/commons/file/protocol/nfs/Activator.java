@@ -72,7 +72,7 @@ public class Activator implements BundleActivator {
 
 		    @Override
 		    public int priority() {
-		        return 2000;
+		        return 3000;
 		    }
 
 		    @Override
