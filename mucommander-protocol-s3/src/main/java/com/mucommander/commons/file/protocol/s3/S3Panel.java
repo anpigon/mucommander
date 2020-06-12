@@ -52,6 +52,7 @@ public class S3Panel extends ServerPanel {
     private JTextField locationField;
     private JCheckBox dnsBuckets;
     private JCheckBox secureHttp;
+    private JComboBox<String> credentialsSelect;
 
     private static String lastServer = "s3.amazonaws.com";
     private static String lastUsername = "";
@@ -63,6 +64,7 @@ public class S3Panel extends ServerPanel {
     private static boolean lastDisableDnsBuckets = true;
     private static boolean lastSecureHttp = true;
     private static String lastLocation = "US";
+    private static String lastCredentialsSelect = "default";
 
     S3Panel(ServerPanelListener listener, JFrame mainFrame) {
         super(listener, mainFrame);
@@ -72,6 +74,10 @@ public class S3Panel extends ServerPanel {
         serverField.selectAll();
         addTextFieldListeners(serverField, true);
         addRow(Translator.get("server_connect_dialog.server"), serverField, 15);
+        
+        credentialsSelect = new JComboBox<>(new String[] {"default"});
+        credentialsSelect.setSelectedItem(lastCredentialsSelect);
+        addRow("AWS Credentials", credentialsSelect, 5);
 
         // Username field, initialized to last username
         usernameField = new JTextField(lastUsername);
